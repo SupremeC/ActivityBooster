@@ -85,7 +85,7 @@ namespace SyntheticProductivityBooster.MouseJiggler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("thedeepermeaningofliff@gmail.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("fake@example.com")]
         public string EmailFrom {
             get {
                 return ((string)(this["EmailFrom"]));
@@ -97,7 +97,7 @@ namespace SyntheticProductivityBooster.MouseJiggler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("rnvubheubbzwklvj")]
+        [global::System.Configuration.DefaultSettingValueAttribute("yourPasswordGoesHere")]
         public string EmailPwd {
             get {
                 return ((string)(this["EmailPwd"]));
@@ -109,7 +109,7 @@ namespace SyntheticProductivityBooster.MouseJiggler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("david.berglund@palettesoftware.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("tobogus@example.com")]
         public string EmailTo {
             get {
                 return ((string)(this["EmailTo"]));

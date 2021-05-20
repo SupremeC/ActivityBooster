@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArkaneSystems.MouseJiggler.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SyntheticProductivityBooster.MouseJiggler.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="MinimizeOnStartup" Type="System.Boolean" Scope="User">
@@ -18,13 +18,13 @@
       <Value Profile="(Default)">10</Value>
     </Setting>
     <Setting Name="EmailFrom" Type="System.String" Scope="User">
-      <Value Profile="(Default)">thedeepermeaningofliff@gmail.com</Value>
+      <Value Profile="(Default)">fake@example.com</Value>
     </Setting>
     <Setting Name="EmailPwd" Type="System.String" Scope="User">
-      <Value Profile="(Default)">rnvubheubbzwklvj</Value>
+      <Value Profile="(Default)">yourPasswordGoesHere</Value>
     </Setting>
     <Setting Name="EmailTo" Type="System.String" Scope="User">
-      <Value Profile="(Default)">david.berglund@palettesoftware.com</Value>
+      <Value Profile="(Default)">tobogus@example.com</Value>
     </Setting>
     <Setting Name="EmailStartAtHour" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">6</Value>
