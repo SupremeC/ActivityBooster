@@ -19,7 +19,7 @@ A mail utility also exists that allows a configured nr of emails to be sent to y
 # Go to your Google account
 # Click security
 # Generate a new App password
-# Fill in stuff the app config located in (%userprofile%\appdata\local)
+# Fill in stuff the app config located in (%userprofile%\appdata\local\SupremeC\...)
 
 Tick the 'Jiggling?' checkbox to begin jiggling the mouse; untick it to stop. The 'Zen jiggle?' checkbox (under "Settings...") enables a mode in which the pointer is jiggled 'virtually' - the system believes it to be moving and thus screen saver activation, etc., is prevented, but the pointer does not actually move. This may not work for idle detection under all applications.</Description>
     <Copyright></Copyright>
