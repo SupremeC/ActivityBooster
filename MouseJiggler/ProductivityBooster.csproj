@@ -4,24 +4,33 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
-    <RootNamespace>ArkaneSystems.MouseJiggler</RootNamespace>
+    <RootNamespace>SyntheticProductivityBooster.MouseJiggler</RootNamespace>
     <Nullable>enable</Nullable>
     <ApplicationIcon>Mouse (ISO).ico</ApplicationIcon>
     <Version>2.0.14</Version>
     <PublishSingleFile>true</PublishSingleFile>
     <SelfContained>false</SelfContained>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-    <Authors>Alistair J. R. Young</Authors>
-    <Company>Arkane Systems</Company>
-    <Description>A utility to continuously jiggle the mouse pointer to prevent screen saver activation.
+    <Authors>SupremeC</Authors>
+    <Company></Company>
+    <Description>A utility to continuously jiggle the mouse pointer to prevent screen saver activation (and also showing you active on IM applications).
+
+A mail utility also exists that allows a configured nr of emails to be sent to your email account to "simulate" a heavy-workload. To enable (gmail): 
+# Go to your Google account
+# Click security
+# Generate a new App password
+# Fill in stuff the app config located in (%userprofile%\appdata\local)
 
 Tick the 'Jiggling?' checkbox to begin jiggling the mouse; untick it to stop. The 'Zen jiggle?' checkbox (under "Settings...") enables a mode in which the pointer is jiggled 'virtually' - the system believes it to be moving and thus screen saver activation, etc., is prevented, but the pointer does not actually move. This may not work for idle detection under all applications.</Description>
-    <Copyright>Copyright © Alistair J. R. Young 2007-2021</Copyright>
+    <Copyright></Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/cerebrate/mousejiggler</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/SupremeC/ActivityBooster</PackageProjectUrl>
     <NeutralLanguage>en-US</NeutralLanguage>
     <AssemblyVersion>2.0.14.0</AssemblyVersion>
     <FileVersion>2.0.14.0</FileVersion>
+    <UserSecretsId>486715ea-7b7c-43a3-87cb-5babc1e2499c</UserSecretsId>
+    <AssemblyName>SyntheticProductivityBooster</AssemblyName>
+    <RepositoryUrl>https://github.com/SupremeC/ActivityBooster</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -30,7 +39,13 @@ Tick the 'Jiggling?' checkbox to begin jiggling the mouse; untick it to stop. Th
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="C:\Users\david\.nuget\packages\nlog.config\4.7.10\contentFiles\any\any\NLog.config" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="2020.3.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.1.0" />
+    <PackageReference Include="NLog" Version="4.7.10" />
     <PackageReference Include="PInvoke.Kernel32" Version="0.7.78" />
     <PackageReference Include="PInvoke.User32" Version="0.7.78" />
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta1.20574.7" />
@@ -57,6 +72,15 @@ Tick the 'Jiggling?' checkbox to begin jiggling the mouse; untick it to stop. Th
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="MailStuff\body.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="MailStuff\titles.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="nlog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -9,27 +9,23 @@
 #region using
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Runtime.InteropServices;
 
 using PInvoke;
 
 #endregion
 
-namespace ArkaneSystems.MouseJiggler
+namespace SyntheticProdBooster.MouseJiggler
 {
     internal static class Helpers
     {
-        #region Console management
-
         /// <summary>
         ///     Constant value signifying a request to attach to the console of the parent process.
         /// </summary>
         internal const int AttachParentProcess = -1;
-
-        #endregion Console management
-
-        #region Jiggling
 
         /// <summary>
         ///     Jiggle the mouse; i.e., fake a mouse movement event.
@@ -67,6 +63,5 @@ namespace ArkaneSystems.MouseJiggler
             }
         }
 
-        #endregion Jiggling
     }
 }

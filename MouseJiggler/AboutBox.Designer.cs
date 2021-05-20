@@ -1,5 +1,5 @@
 ﻿
-namespace ArkaneSystems.MouseJiggler
+namespace SyntheticProdBooster.MouseJiggler
 {
     sealed partial class AboutBox
     {
@@ -31,13 +31,13 @@ namespace ArkaneSystems.MouseJiggler
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutBox));
             this.baseLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.cmdOk = new System.Windows.Forms.Button();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.lbProductName = new System.Windows.Forms.Label();
             this.lbVersion = new System.Windows.Forms.Label();
             this.lbCopyright = new System.Windows.Forms.Label();
             this.lbCompanyName = new System.Windows.Forms.Label();
             this.tbDescription = new System.Windows.Forms.TextBox();
-            this.cmdOk = new System.Windows.Forms.Button();
             this.baseLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
@@ -66,6 +66,18 @@ namespace ArkaneSystems.MouseJiggler
             this.baseLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.baseLayout.Size = new System.Drawing.Size(416, 263);
             this.baseLayout.TabIndex = 0;
+            // 
+            // cmdOk
+            // 
+            this.cmdOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdOk.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cmdOk.Location = new System.Drawing.Point(338, 238);
+            this.cmdOk.Name = "cmdOk";
+            this.cmdOk.Size = new System.Drawing.Size(75, 22);
+            this.cmdOk.TabIndex = 0;
+            this.cmdOk.Text = "&OK";
+            this.cmdOk.UseVisualStyleBackColor = true;
+            this.cmdOk.Click += new System.EventHandler(this.cmdOk_Click);
             // 
             // pbLogo
             // 
@@ -140,18 +152,6 @@ namespace ArkaneSystems.MouseJiggler
             this.tbDescription.Size = new System.Drawing.Size(270, 125);
             this.tbDescription.TabIndex = 5;
             this.tbDescription.Text = "Description";
-            // 
-            // cmdOk
-            // 
-            this.cmdOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdOk.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmdOk.Location = new System.Drawing.Point(338, 238);
-            this.cmdOk.Name = "cmdOk";
-            this.cmdOk.Size = new System.Drawing.Size(75, 22);
-            this.cmdOk.TabIndex = 0;
-            this.cmdOk.Text = "&OK";
-            this.cmdOk.UseVisualStyleBackColor = true;
-            this.cmdOk.Click += new System.EventHandler(this.cmdOk_Click);
             // 
             // AboutBox
             // 

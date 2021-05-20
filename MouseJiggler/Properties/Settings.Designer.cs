@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ArkaneSystems.MouseJiggler.Properties {
+namespace SyntheticProductivityBooster.MouseJiggler.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -56,6 +56,90 @@ namespace ArkaneSystems.MouseJiggler.Properties {
             }
             set {
                 this["JigglePeriod"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SendEmails {
+            get {
+                return ((bool)(this["SendEmails"]));
+            }
+            set {
+                this["SendEmails"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public int EmailsPerDay {
+            get {
+                return ((int)(this["EmailsPerDay"]));
+            }
+            set {
+                this["EmailsPerDay"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("thedeepermeaningofliff@gmail.com")]
+        public string EmailFrom {
+            get {
+                return ((string)(this["EmailFrom"]));
+            }
+            set {
+                this["EmailFrom"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("rnvubheubbzwklvj")]
+        public string EmailPwd {
+            get {
+                return ((string)(this["EmailPwd"]));
+            }
+            set {
+                this["EmailPwd"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("david.berglund@palettesoftware.com")]
+        public string EmailTo {
+            get {
+                return ((string)(this["EmailTo"]));
+            }
+            set {
+                this["EmailTo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("6")]
+        public int EmailStartAtHour {
+            get {
+                return ((int)(this["EmailStartAtHour"]));
+            }
+            set {
+                this["EmailStartAtHour"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("17")]
+        public int EmailEndAtHour {
+            get {
+                return ((int)(this["EmailEndAtHour"]));
+            }
+            set {
+                this["EmailEndAtHour"] = value;
             }
         }
     }

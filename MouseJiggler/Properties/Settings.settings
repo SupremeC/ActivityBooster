@@ -11,5 +11,26 @@
     <Setting Name="JigglePeriod" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
     </Setting>
+    <Setting Name="SendEmails" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="EmailsPerDay" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="EmailFrom" Type="System.String" Scope="User">
+      <Value Profile="(Default)">thedeepermeaningofliff@gmail.com</Value>
+    </Setting>
+    <Setting Name="EmailPwd" Type="System.String" Scope="User">
+      <Value Profile="(Default)">rnvubheubbzwklvj</Value>
+    </Setting>
+    <Setting Name="EmailTo" Type="System.String" Scope="User">
+      <Value Profile="(Default)">david.berglund@palettesoftware.com</Value>
+    </Setting>
+    <Setting Name="EmailStartAtHour" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">6</Value>
+    </Setting>
+    <Setting Name="EmailEndAtHour" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">17</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

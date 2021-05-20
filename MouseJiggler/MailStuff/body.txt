@@ -1,0 +1,77 @@
+﻿I'm trying to create a Integration test project for my .NET core API using NUnit.
+I'm getting an exception 404 when I tried API call.
+I gave created FakeStartup class for my Testing. It just a copy if my startup.
+Note:- If I passed Startup class for my IntegrationTestFactory, it working fine without issues?
+¤
+I am writing an integration test for a web app, where a few files have to be attached in a form. Form has a few file input boxes, out of which one is expected to allow 1 or more files to be attached, while the rest allow only 1 file at a time.
+I am attaching files to the input boxes by giving them an absolute path to each file in a code like below:
+self.driver.find_element(*input_locator).send_keys(abs_file_path)
+For 1-file boxes that's enough. For the multiple files one, I just put it in a for-each loop on a list holding all abs_file_path strings.
+
+Now, this approach works for Chrome, Firefox and Edge. But Internet Explorer does something funny - it actually animates user pressing the input box for each element on a list, and then tries to attach it, removing the previously attached one. In the end, out of ~7 files which should be attached, there's only 1 (the last one).
+Is that a known problem with IE, and if so, is there any workaround?
+
+¤
+I'm trying to setup TypeScript with Cypress. The environment seems to be setup well, but there seems to be an issue around pulling in type definitions from Cypress.
+For deconstructing the cy.wait('@graphql').then({request}) params, TypeScript complains that you have to set the type of the request param. There doesn't seem to be a lot of type exports from Cypress, but there is Cypress.WaitXHR and Cypress.ObjectLike that allow me to hack my way to a solution.
+This solution seems to appease TypeScript, but doesn't feel very nice. Is there a better way to do this?
+
+¤
+0
+
+
+In our application (ASP.NET core) we have events that require computations and which results need to be persisted in a database (the objects are projects that need recalculations when a property changes, and then the financial results need to stored). These actions need to take place asynchronously in the background.
+
+Right now we have implemented this with an in-memory queue and background service by implementing System.Threading.SemaphoreSlim and Microsoft.Extensions.Hosting.BackgroundService. What is great about this is that event is immediately triggered on queueing the workitem. What's not great about it is that the workitems are lost in the queue when the application is killed.
+For a more robust solution we have migrated the queue to an Azure Storage Queue, in which we queue serialized workitem objects. The queue has worked well, and now we need to replace the BackgroundService.
+
+After reviewing the Microsoft examples for de-queuing the message queue, I feel that polling directly makes most sense to me. This is because for example, Azure Queue storage trigger for Azure Functions also polls the queue, just with a simple algorithm. For the systems responsiveness a 5 second polling interval would meet our requirement. As such I have planned to implement Microsoft.Extensions.Hosting.IHostedService with a System.Threading.Timer for each queue (about a dozen queues) and poll my Azure storage queue every 5 seconds.
+Q: Is there a more common or obvious implementation of a service that dequeues the Azure storage message queue in an ASP.NET core application? Or is this a sound approach to how one would use the Azure storage queue?
+
+¤
+I've worked on a few codebases without a great automated test suite, where changes that concern the whole platform have to be thoroughly tested by developers and there would be a high risk that a degradation is introduced with each release. How do you prevent this from happening?
+
+The less than perfect answers from my experience are:
+
+Test thoroughly yourself - completely unsustainable on large projects
+Organise group testing sessions - can be effective, but a bit chaotic and a pain in the ass for everyone involved
+Manual release QA tests - soul sucking affair where some poor sod has to trawl through a spreadsheet of manual tests, limited by their knowledge of the platform and existing bugs
+What would be yours, save for improving the testing suite or hiring people whose job is QA?
+
+¤
+Tests prevent regressions. There are other tools which would prevent regressions, but unfortunately they are either less effective (example: code reviews), or extremely expensive (example: formal proofs), which leaves us with tests as the best option.
+
+So you find yourself in front of a codebase which should be tested, but is not tested yet, or not enough, and you have to make a change. The solution to prevent regressions is to progressively increase the test coverage.
+
+When you touch a small part of the codebase, check if it's tested. If you are confident enough that most if not all the logic is tested, that's great. If not, start by adding tests. The great thing is while you do it, you will:
+
+Understand better the part that you wanted to modify.
+Have a better view of how well this part of the code matches the business requirements.
+Find a bunch of errors in the logic of the code, such as the branches which can never be reached.
+Get a clear picture of the change you were expected to do.
+Imagine some possible refactoring to do.
+
+¤
+Writing tests really is the way to go. but assuming you can't I would go with "more logging"
+
+If you are logging all your errors then you can tell if a release increases or decreases the number of errors of various types.
+If a feature release decreases errors, you are good. If it increases you have introduced a new problem.
+Coupled with a canary release, where you release a new version to a subset of users you should at least be able to gauge if the new release is better than the last, even if you can't tell if it's working correctly or not.
+
+¤
+Let's suppose that we have 3 databases running in the same machine. Should I allow that these databases can use different DatabaseEngines? Is it possible in a production environment to have multiple different databases running in the same machine?
+
+At the moment I am saving the specific DatabaseEngine to be used for each different database in a file called "dbconfig.conf". There is 1 dbconfig.conf file for each database. When the database is loaded it reads the config file and uses the chosen DatabaseEngine. However, initially, I used to store the DatabaseEngine in the config collection of the database representing my DBMS (for example in MySQL the database representing MySQL is mysql if I am not wrong).
+However if I do this when each database is loaded the database reads which DatabaseEngine to use from the config collection of the main db and the DatabaseEngine. It's the same for every different database.
+
+¤
+My current process is:
+
+Code
+Test
+Commit and push to branch
+Pull request, merge to master
+Build the installer project in Visual Studio (Generates an msi file)
+Run a python script to silently copy new application files to a shared network folder
+AutoUpdater.NET checks for new files and updates other employees' software as necessary
+Is there Github workflow actions that can automate all this? How do other companies deploy internal software? Really looking for low-budget/free options since this is a really small company. I'm basically looking to deploy this internal software to my company network/workstations, from home.

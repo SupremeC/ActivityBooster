@@ -6,24 +6,17 @@
 
 #endregion
 
-#region using
-
 using System;
 using System.CommandLine;
 using System.CommandLine.Invocation;
 using System.CommandLine.Parsing;
 using System.Threading;
 using System.Windows.Forms;
-
-using ArkaneSystems.MouseJiggler.Properties;
-
 using JetBrains.Annotations;
-
 using PInvoke;
+using SyntheticProductivityBooster.MouseJiggler.Properties;
 
-#endregion
-
-namespace ArkaneSystems.MouseJiggler
+namespace SyntheticProdBooster.MouseJiggler
 {
     [PublicAPI]
     public static class Program
@@ -46,7 +39,7 @@ namespace ArkaneSystems.MouseJiggler
 
                     // Parse arguments and do the appropriate thing.
                 {
-                    return Program.GetCommandLineParser ().Invoke (args: args);
+                    return Program.GetCommandLineParser().Invoke (args: args);
                 }
                 else
                 {

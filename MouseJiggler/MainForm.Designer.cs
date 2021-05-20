@@ -1,5 +1,5 @@
 ﻿
-namespace ArkaneSystems.MouseJiggler
+namespace SyntheticProdBooster.MouseJiggler
 {
     partial class MainForm
     {
@@ -43,17 +43,23 @@ namespace ArkaneSystems.MouseJiggler
             this.tbPeriod = new System.Windows.Forms.TrackBar();
             this.cbMinimize = new System.Windows.Forms.CheckBox();
             this.cbZen = new System.Windows.Forms.CheckBox();
+            this.panelEmailer = new System.Windows.Forms.Panel();
+            this.CbSendEmails = new System.Windows.Forms.CheckBox();
+            this.lbEmailsPerDay = new System.Windows.Forms.Label();
+            this.trackBarEmails = new System.Windows.Forms.TrackBar();
             this.niTray = new System.Windows.Forms.NotifyIcon(this.components);
             this.flpLayout.SuspendLayout();
             this.panelBase.SuspendLayout();
             this.panelSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbPeriod)).BeginInit();
+            this.panelEmailer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarEmails)).BeginInit();
             this.SuspendLayout();
             // 
             // jiggleTimer
             // 
             this.jiggleTimer.Interval = 1000;
-            this.jiggleTimer.Tick += new System.EventHandler(this.jiggleTimer_Tick);
+            this.jiggleTimer.Tick += new System.EventHandler(this.JiggleTimer_Tick);
             // 
             // flpLayout
             // 
@@ -61,12 +67,13 @@ namespace ArkaneSystems.MouseJiggler
             this.flpLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flpLayout.Controls.Add(this.panelBase);
             this.flpLayout.Controls.Add(this.panelSettings);
+            this.flpLayout.Controls.Add(this.panelEmailer);
             this.flpLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpLayout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpLayout.Location = new System.Drawing.Point(0, 0);
             this.flpLayout.Name = "flpLayout";
             this.flpLayout.Padding = new System.Windows.Forms.Padding(5);
-            this.flpLayout.Size = new System.Drawing.Size(304, 160);
+            this.flpLayout.Size = new System.Drawing.Size(340, 340);
             this.flpLayout.TabIndex = 2;
             // 
             // panelBase
@@ -88,7 +95,7 @@ namespace ArkaneSystems.MouseJiggler
             this.cmdAbout.TabIndex = 2;
             this.cmdAbout.Text = "?";
             this.cmdAbout.UseVisualStyleBackColor = true;
-            this.cmdAbout.Click += new System.EventHandler(this.cmdAbout_Click);
+            this.cmdAbout.Click += new System.EventHandler(this.CmdAbout_Click);
             // 
             // cmdTrayify
             // 
@@ -98,7 +105,7 @@ namespace ArkaneSystems.MouseJiggler
             this.cmdTrayify.TabIndex = 3;
             this.cmdTrayify.Text = "🔽";
             this.cmdTrayify.UseVisualStyleBackColor = true;
-            this.cmdTrayify.Click += new System.EventHandler(this.cmdTrayify_Click);
+            this.cmdTrayify.Click += new System.EventHandler(this.CmdTrayify_Click);
             // 
             // cbSettings
             // 
@@ -108,7 +115,7 @@ namespace ArkaneSystems.MouseJiggler
             this.cbSettings.TabIndex = 1;
             this.cbSettings.Text = "Settings...";
             this.cbSettings.UseVisualStyleBackColor = true;
-            this.cbSettings.CheckedChanged += new System.EventHandler(this.cbSettings_CheckedChanged);
+            this.cbSettings.CheckedChanged += new System.EventHandler(this.CbSettings_CheckedChanged);
             // 
             // cbJiggling
             // 
@@ -119,7 +126,7 @@ namespace ArkaneSystems.MouseJiggler
             this.cbJiggling.TabIndex = 0;
             this.cbJiggling.Text = "Jiggling?";
             this.cbJiggling.UseVisualStyleBackColor = true;
-            this.cbJiggling.CheckedChanged += new System.EventHandler(this.cbJiggling_CheckedChanged);
+            this.cbJiggling.CheckedChanged += new System.EventHandler(this.CbJiggling_CheckedChanged);
             // 
             // panelSettings
             // 
@@ -156,7 +163,7 @@ namespace ArkaneSystems.MouseJiggler
             this.tbPeriod.TabIndex = 6;
             this.tbPeriod.TickFrequency = 2;
             this.tbPeriod.Value = 1;
-            this.tbPeriod.ValueChanged += new System.EventHandler(this.tbPeriod_ValueChanged);
+            this.tbPeriod.ValueChanged += new System.EventHandler(this.TbPeriod_ValueChanged);
             // 
             // cbMinimize
             // 
@@ -167,7 +174,7 @@ namespace ArkaneSystems.MouseJiggler
             this.cbMinimize.TabIndex = 5;
             this.cbMinimize.Text = "Minimize on start?";
             this.cbMinimize.UseVisualStyleBackColor = true;
-            this.cbMinimize.CheckedChanged += new System.EventHandler(this.cbMinimize_CheckedChanged);
+            this.cbMinimize.CheckedChanged += new System.EventHandler(this.CbMinimize_CheckedChanged);
             // 
             // cbZen
             // 
@@ -178,13 +185,61 @@ namespace ArkaneSystems.MouseJiggler
             this.cbZen.TabIndex = 4;
             this.cbZen.Text = "Zen jiggle?";
             this.cbZen.UseVisualStyleBackColor = true;
-            this.cbZen.CheckedChanged += new System.EventHandler(this.cbZen_CheckedChanged);
+            this.cbZen.CheckedChanged += new System.EventHandler(this.CbZen_CheckedChanged);
+            // 
+            // panelEmailer
+            // 
+            this.panelEmailer.AutoSize = true;
+            this.panelEmailer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelEmailer.Controls.Add(this.CbSendEmails);
+            this.panelEmailer.Controls.Add(this.lbEmailsPerDay);
+            this.panelEmailer.Controls.Add(this.trackBarEmails);
+            this.panelEmailer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelEmailer.Location = new System.Drawing.Point(8, 158);
+            this.panelEmailer.Name = "panelEmailer";
+            this.panelEmailer.Size = new System.Drawing.Size(290, 110);
+            this.panelEmailer.TabIndex = 4;
+            this.panelEmailer.Visible = false;
+            // 
+            // CbSendEmails
+            // 
+            this.CbSendEmails.AutoSize = true;
+            this.CbSendEmails.Location = new System.Drawing.Point(10, 11);
+            this.CbSendEmails.Name = "CbSendEmails";
+            this.CbSendEmails.Size = new System.Drawing.Size(89, 19);
+            this.CbSendEmails.TabIndex = 7;
+            this.CbSendEmails.Text = "Send emails";
+            this.CbSendEmails.UseVisualStyleBackColor = true;
+            this.CbSendEmails.CheckedChanged += new System.EventHandler(this.CbSendEmails_CheckedChanged);
+            // 
+            // lbEmailsPerDay
+            // 
+            this.lbEmailsPerDay.AutoSize = true;
+            this.lbEmailsPerDay.Location = new System.Drawing.Point(238, 41);
+            this.lbEmailsPerDay.Name = "lbEmailsPerDay";
+            this.lbEmailsPerDay.Size = new System.Drawing.Size(43, 15);
+            this.lbEmailsPerDay.TabIndex = 3;
+            this.lbEmailsPerDay.Text = "1 / day";
+            // 
+            // trackBarEmails
+            // 
+            this.trackBarEmails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.trackBarEmails.Location = new System.Drawing.Point(4, 62);
+            this.trackBarEmails.Maximum = 40;
+            this.trackBarEmails.Minimum = 1;
+            this.trackBarEmails.Name = "trackBarEmails";
+            this.trackBarEmails.Size = new System.Drawing.Size(283, 45);
+            this.trackBarEmails.TabIndex = 6;
+            this.trackBarEmails.TickFrequency = 2;
+            this.trackBarEmails.Value = 1;
+            this.trackBarEmails.ValueChanged += new System.EventHandler(this.TrackBarEmails_ValueChanged);
             // 
             // niTray
             // 
             this.niTray.Icon = ((System.Drawing.Icon)(resources.GetObject("niTray.Icon")));
             this.niTray.Text = "Mouse Jiggler";
-            this.niTray.DoubleClick += new System.EventHandler(this.niTray_DoubleClick);
+            this.niTray.DoubleClick += new System.EventHandler(this.NiTray_DoubleClick);
             // 
             // MainForm
             // 
@@ -192,14 +247,14 @@ namespace ArkaneSystems.MouseJiggler
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(304, 160);
+            this.ClientSize = new System.Drawing.Size(340, 340);
             this.Controls.Add(this.flpLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
-            this.Text = "Mouse Jiggler";
+            this.Text = "Synthetic Productivity Booster";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.flpLayout.ResumeLayout(false);
@@ -209,6 +264,9 @@ namespace ArkaneSystems.MouseJiggler
             this.panelSettings.ResumeLayout(false);
             this.panelSettings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbPeriod)).EndInit();
+            this.panelEmailer.ResumeLayout(false);
+            this.panelEmailer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarEmails)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,6 +287,10 @@ namespace ArkaneSystems.MouseJiggler
         private System.Windows.Forms.Button cmdAbout;
         private System.Windows.Forms.NotifyIcon niTray;
         private System.Windows.Forms.Button cmdTrayify;
+        private System.Windows.Forms.Panel panelEmailer;
+        private System.Windows.Forms.Label lbEmailsPerDay;
+        private System.Windows.Forms.TrackBar trackBarEmails;
+        private System.Windows.Forms.CheckBox CbSendEmails;
     }
 }
 
